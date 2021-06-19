@@ -152,7 +152,7 @@ class ols():
     def __getStdev(self, arr):
         return self.__getVariance(arr)**0.5
     
-    # get p-value (used in .F_Test)
+    # get p-value (used in .F_Test and .p)
     def __getP(self, x, mean, stdev):
         import math
         P = 0.5 * (1 + math.erf((x-mean)/(stdev*(2**0.5))))
@@ -221,8 +221,7 @@ class ols():
         F = self.F(X, y)
         F_Test = self.F_Test(X, y)
         df = N - len(coefs)
-        STRING = ""
-        STRING += "-"*trim + '\n'
+        STRING = "-"*trim + '\n'
         if title == None:
             title = " "*55 + "Ordinary Least Squares"
         STRING += title + '\n'
