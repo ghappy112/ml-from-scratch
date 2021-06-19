@@ -1,5 +1,6 @@
 # Copyright 2021, Gregory Happ, All rights reserved.
 # ols from scratch
+# recommended methods for most users are .fit, .predict, .score, and .summary
 
 class ols():
     
