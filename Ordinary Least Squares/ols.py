@@ -208,7 +208,6 @@ class ols():
             stars = ""
         return stars
 
-    
     # display a summary of the results in an academic journal style format
     def summary(self, X, y, colnames=None, title=None, trim=91):
         intercept = self.intercept_
