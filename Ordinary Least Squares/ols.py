@@ -223,8 +223,8 @@ class ols():
         df = N - len(coefs)
         STRING = "-"*trim + '\n'
         if title == None:
-            title = " "*55 + "Ordinary Least Squares"
-        STRING += title + '\n'
+            title = "Ordinary Least Squares"
+        STRING += " "*55 + title + '\n'
         STRING += "-"*trim + '\n'
         if colnames == None:
             colnames = []
