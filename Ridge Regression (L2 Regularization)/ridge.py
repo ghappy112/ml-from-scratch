@@ -80,14 +80,14 @@ class ridge():
     
     # train model
     def fit(self, X, y):
-        t = self.__transpose(X)
-        XT_X = self.__matmul(t, X)
+        Xs = [[1] + row for row in X]
+        t = self.__transpose(Xs)
+        XT_X = self.__matmul(t, Xs)
         lambda_I = [[self.LAMBDA if col == row else 0.0 for col in range(len(XT_X[0]))] for row in range(len(XT_X))] # create an identity matrix
+        lambda_I[0][0] = 0 # we don't penalize the intercept
         self.coef_ = [List[0] for List in self.__matmul(self.__matmul(self.__inverse(self.__matadd(XT_X, lambda_I)), t), [[Y] for Y in y])]
-        self.intercept_ = sum(y) / len(y)
-        for i in range(len(self.coef_)):
-            column = [row[i] for row in X]
-            self.intercept_ -= self.coef_[i] * (sum(column) / len(column))
+        self.intercept_ = self.coef_[0]
+        self.coef_ = self.coef_[1:]
             
     # predict
     def predict(self, X):
