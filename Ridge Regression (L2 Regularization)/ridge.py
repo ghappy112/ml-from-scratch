@@ -5,8 +5,7 @@
 
 class ridge():
     
-    def __init__(self, alpha=1, LAMBDA=1):
-        self.alpha = alpha
+    def __init__(self, LAMBDA=1):
         self.LAMBDA = LAMBDA
         return None
     
@@ -84,7 +83,7 @@ class ridge():
         t = self.__transpose(X)
         XT_X = self.__matmul(t, X)
         lambda_I = [[self.LAMBDA if col == row else 0.0 for col in range(len(XT_X[0]))] for row in range(len(XT_X))] # create an identity matrix
-        self.coef_ = [List[0] * self.alpha for List in self.__matmul(self.__matmul(self.__inverse(self.__matadd(XT_X, lambda_I)), t), [[Y] for Y in y])]
+        self.coef_ = self.__matmul(self.__matmul(self.__inverse(self.__matadd(XT_X, lambda_I)), t), [[Y] for Y in y])
         self.intercept_ = sum(y) / len(y)
         for i in range(len(self.coef_)):
             column = [row[i] for row in X]
