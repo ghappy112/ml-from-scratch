@@ -1,7 +1,7 @@
 # Copyright 2021, Gregory Happ, All rights reserved.
 # ridge regression from scratch
 # recommended methods for most users are .fit, .predict, .score, and .summary
-# it is highly recommended to scale your independent variables. Further, it is also recommended to scale your dependent variable if you wish to use .summary
+# it is highly recommended to scale your independent variables
 
 class ridge():
     
